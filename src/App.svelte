@@ -1,8 +1,5 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
 
-  import SqDat from './data/SqDat'
   import TownsMap from './lib/TownsMap.svelte';
   import ChartDiv from './lib/barChart.svelte';
 

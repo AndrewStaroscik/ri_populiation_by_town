@@ -30,7 +30,9 @@
       yAxis;
   const margin = {top: 20, right: 30, bottom: 50, left: 70},
         width = 500 - margin.left - margin.right,
-        height = 250 - margin.top - margin.bottom; 
+        height = 250 - margin.top - margin.bottom,
+        axisColor = '#676767'; 
+      
 
   let formatNumb = d3.format(',');
   
@@ -104,14 +106,23 @@
           .ticks(5)
         )
         .selectAll('text')
-          .style('fill', '#565656');
+          .style('fill', axisColor)
+        
+
+      g.select('#y_axis')
+        .selectAll('path')
+        .style('stroke', axisColor);
+
+        g.select('#y_axis')
+        .selectAll('line')
+        .style('stroke', axisColor); 
 
       svg.append("text")
         .attr("text-anchor", "end")
         .attr("transform", "rotate(-90)")
         .attr("y", margin.left/4)
         .attr("x", -height/2)
-        .style('fill', '#676767')
+        .style('fill', axisColor)
         .text("Count")
 
       // Bars
@@ -158,7 +169,12 @@
         .ticks(5)
       )
       .selectAll('text')
-      .style('fill', '#565656');
+      .style('fill', '#f00');
+
+      g.select('#y_axis')
+        .selectAll('path')
+        .style('stroke', '#f00');  
+
 
     // update data
     g.selectAll('.bar')
@@ -249,6 +265,17 @@
   .bar_container {
     z-index: 5;
   }
+
+  .yax line {
+  stroke: rgb(173, 63, 63);
+}
+.domain path {
+  stroke: rgb(197, 40, 40);
+}
+    
+.yax text {
+  fill: rgb(212, 36, 36);
+}
 
 
   /* .tick {
